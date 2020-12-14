@@ -60,7 +60,6 @@ function RegisterForm({ setResponse }) {
                 const result = () => {
                     const { name, lastName, birthday, email, userName, password, area, rol, hasJob, phone, website, conditions } = values
                     const preferences = [...conditions]
-                    console.log(preferences)
                     return (<>
                         <h3>¡Hola {name}, gracias por registrarte!</h3>
                         <p>Esta es la información que ingresaste:</p>

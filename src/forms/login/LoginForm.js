@@ -6,7 +6,6 @@ function LoginForm({ setResponse }) {
 
     const [msg, setMsg] = useState("")
     const [error, setError] = useState(false)
-
     const accounts = [{
         user: "luis",
         password: "tdc123"

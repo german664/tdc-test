@@ -5,12 +5,6 @@ import { $ValidEmail } from '../../customFields/$ValidEmail'
 
 function ContactForm({ setResponse }) {
 
-    const preFill = new Promise((resolve) => setTimeout(() => {
-        resolve(
-            { name: "José Zambrano", email: "jzambrano@gmail.com", phone: "+56972994374", message: 'Me gustaría agendar una reunión para hacerte una propuesta laboral' },
-        );
-    }, 1500));
-
     const form = useForm($Form({
         fields: {
             name: $Text('Nombre'),
@@ -41,7 +35,11 @@ function ContactForm({ setResponse }) {
     }));
 
     useEffect(() => {
-
+        const preFill = new Promise((resolve) => setTimeout(() => {
+            resolve(
+                { name: "José Zambrano", email: "jzambrano@gmail.com", phone: "+56972994374", message: 'Me gustaría agendar una reunión para hacerte una propuesta laboral' },
+            );
+        }, 1500));
         preFill.then(data => form.fillWith(data))
 
     }, []);

@@ -63,7 +63,7 @@ const CallAPI = () => {
                                             <strong>Hair Color: </strong>{character.hair_color}
                                         </p>
                                         <p> <strong>Eyes Color:</strong> {character.eye_color}</p>
-                                        <p onClick={() => console.log(characterUrl)}> <strong>Year of Birth: </strong>{character.birth_year}</p>
+                                        <p> <strong>Year of Birth: </strong>{character.birth_year}</p>
 
                                     </div>
                                 </div>
