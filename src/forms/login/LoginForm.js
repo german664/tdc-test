@@ -76,8 +76,8 @@ function LoginForm({ setResponse }) {
             {error && <h4>{msg}</h4>}
             {user.render()}
             {password.render()}
-            {remember.render()}
             {<ReCAPTCHA ref={recaptchaRef} sitekey={process.env.REACT_APP_SITE_KEY} />}
+            {remember.render()}
             <div className="d-flex justify-content-center">
                 {form.renderSubmit()}
             </div>
