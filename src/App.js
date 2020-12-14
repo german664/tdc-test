@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Switch } from "react-router-dom"
+import { XFormContext, spanish } from '@tdc-cl/x-form';
+import LoginContainer from "./forms/login/LoginContainer";
+import ContactContainer from "./forms/contact/ContactContainer";
+import RegisterContainer from "./forms/register/RegisterContainer";
+import Home from "./Home";
+import CallAPI from "./CallAPI";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <BrowserRouter>
+      <Switch>
+        <XFormContext.Provider value={{ locale: spanish }}>
+          <Route path="/api/:page?" component={CallAPI} />
+          <Route path="/register" component={RegisterContainer} />
+          <Route path="/contact" component={ContactContainer} />
+          <Route path="/login" component={LoginContainer} />
+          <Route path="/" component={Home} exact />
+        </XFormContext.Provider>
+
+      </Switch>
+    </BrowserRouter>
+
   );
 }
 
