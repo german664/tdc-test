@@ -6,6 +6,7 @@ function LoginForm({ setResponse }) {
 
     const [msg, setMsg] = useState("")
     const [error, setError] = useState(false)
+
     const accounts = [{
         user: "luis",
         password: "tdc123"
@@ -23,21 +24,7 @@ function LoginForm({ setResponse }) {
 
     const form = useForm($Form({
         fields: {
-            user: $Text('Usuario').with({
-                render: {
-                    FieldContainer({ field, children }) {
-                        return (
-                            <div ref={field.containerRef}>
-                                {children}
-                            </div>
-                        );
-                    },
-
-                    Input({ field }) {
-                        return <input {...field.inputProps} placeholder="Solo usuario, no funcionará tu correo electrónico" ref={field.inputRef} />;
-                    }
-                }
-            }),
+            user: $Text('Usuario'),
             password: $Password('Contraseña'),
             remember: $Checkbox('Recordar'),
         },
@@ -75,8 +62,8 @@ function LoginForm({ setResponse }) {
             {error && <h4>{msg}</h4>}
             {user.render()}
             {password.render()}
-            {<ReCAPTCHA ref={recaptchaRef} sitekey={process.env.REACT_APP_SITE_KEY} />}
             {remember.render()}
+            {<ReCAPTCHA ref={recaptchaRef} sitekey={process.env.REACT_APP_SITE_KEY} />}
             <div className="d-flex justify-content-center">
                 {form.renderSubmit()}
             </div>
